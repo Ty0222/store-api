@@ -1,4 +1,6 @@
 class LineItem < ApplicationRecord
+  has_many :orders_line_items
+  has_many :orders, through: :orders_line_items
   belongs_to :cart
 
   validates :code, :quantity, :price, :total, :cart_id, presence: true

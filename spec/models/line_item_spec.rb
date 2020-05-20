@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe LineItem, type: :model do
   it { is_expected.to belong_to(:cart) }
+  it { is_expected.to have_many(:orders_line_items) }
+  it { is_expected.to have_many(:orders).through(:orders_line_items) }
   it { is_expected.to validate_presence_of(:code) }
   it { is_expected.to validate_presence_of(:quantity) }
   it { is_expected.to validate_presence_of(:price) }

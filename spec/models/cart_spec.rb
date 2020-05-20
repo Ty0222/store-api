@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
-  it { is_expected.to have_many(:line_items).dependent(:destroy) }
+  it { is_expected.to have_many(:line_items).dependent(:nullify) }
 
   describe "#add_item" do
     it "increases its cart's line item quantity by 1" do

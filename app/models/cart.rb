@@ -1,5 +1,5 @@
 class Cart < ApplicationRecord
-  has_many :line_items, dependent: :destroy
+  has_many :line_items, dependent: :nullify
 
   def add_item(code, pricing_rules)
     line_item = line_item_from_code(code)
