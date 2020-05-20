@@ -23,4 +23,28 @@ RSpec.describe Checkout, type: :model do
       expect(cart).to have_received(:add_item).with(item, pricing_rules)
     end
   end
+
+  describe "#total" do
+    it "returns the sum of all its cart's line item totals" do
+      pricing_rules = double("pricing rules")
+      cart = create(:cart)
+      create(:line_item, code: "CC", price: 1.50, total: 3.00, quantity: 3, cart_id: cart.id)
+      create(:line_item, code: "PC", price: 2.00, total: 8.00, quantity: 5, cart_id: cart.id)
+
+      co = Checkout.new(cart: cart, pricing_rules: pricing_rules)
+
+      expect(co.total).to eq(11.00)
+    end
+
+    context "when there are no line items in its cart" do
+      it "returns 0" do
+        pricing_rules = double("pricing rules")
+        cart = create(:cart)
+
+        co = Checkout.new(cart: cart, pricing_rules: pricing_rules)
+
+        expect(co.total).to eq(0.00)
+      end
+    end
+  end
 end

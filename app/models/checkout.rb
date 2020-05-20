@@ -11,6 +11,10 @@ class Checkout
     cart.add_item(item, pricing_rules)
   end
 
+  def total
+    cart.line_items.sum(:total).to_f
+  end
+
   private
 
   attr_reader :pricing_rules
