@@ -2,7 +2,7 @@ class Checkout
 
   attr_reader :cart
 
-  def initialize(cart:, pricing_rules:)
+  def initialize(cart:, pricing_rules: Discount)
     @cart = cart
     @pricing_rules = pricing_rules
   end
