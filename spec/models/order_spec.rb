@@ -12,7 +12,7 @@ RSpec.describe Order, type: :model do
         order = build(:order)
         order.line_items = line_items
         
-        expect(order.total).to eq(nil)
+        expect(order.total).to eq(0.00)
 
         order.save
 
