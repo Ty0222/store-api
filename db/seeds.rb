@@ -3,5 +3,6 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Product.create([{ code:  'CC', name:  'Coca-Cola', price: 1.50 },
+                { code:  'PC', name:  'Pepsi-Cola', price: 2.00 },
+                { code:  'WA', name:  'Water', price: 0.85 }])
