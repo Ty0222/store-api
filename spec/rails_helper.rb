@@ -48,6 +48,7 @@ RSpec.configure do |config|
   # add `FactoryBot` methods
   config.include FactoryBot::Syntax::Methods
   config.include RequestSpecHelper, type: :request
+  config.include SerializerSpecHelper, type: :serializer
   config.include RSpec::Rails::ModelExampleGroup, type: :validator
   config.include RSpec::Rails::RequestExampleGroup, type: :validator
   config.include Shoulda::Matchers::ActiveModel, type: :validator
