@@ -4,6 +4,10 @@ class Order < ApplicationRecord
 
   before_create :add_total
 
+  def total
+    read_attribute(:total).to_f if read_attribute(:total)
+  end
+
   private
 
   def add_total

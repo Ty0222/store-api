@@ -20,4 +20,13 @@ RSpec.describe Order, type: :model do
       end
     end
   end
+
+  describe "#total" do
+    it "returns a formatted decimal" do
+      order_total = 2.00
+      order = build(:order, total: order_total)
+
+      expect(order.total).to eq(order_total)
+    end
+  end
 end
