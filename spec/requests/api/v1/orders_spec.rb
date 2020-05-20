@@ -20,6 +20,7 @@ RSpec.describe 'Orders API', type: :request do
         expect(json.first["id"]).to eq(queried_order.id)
         expect(json.first["total"]).to eq(4.00)
         expect(json.last["id"]).not_to eq(order.id)
+        expect(json.first["line_items"].first["quantity"]).to eq(1)
       end
 
       it 'returns status code 200' do
